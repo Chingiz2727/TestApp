@@ -4,7 +4,7 @@ enum NewsTarget: ApiTarget {
   case getTopNews(page: Int, pageSize: Int)
   case getEverythingNews(page: Int, pageSize: Int)
   
-  static let key = "e65ee0938a2a43ebb15923b48faed18d"
+  static let key = "a17b90eea4d64ffca4fd78b9d6a034e0"
   
   var mainUrl: String { return "https://newsapi.org"}
   
@@ -16,7 +16,14 @@ enum NewsTarget: ApiTarget {
     return ""
   }
   
-  var path: String { return "top-headlines" }
+  var path: String {
+    switch self {
+    case .getTopNews:
+      return "top-headlines"
+    case .getEverythingNews:
+      return "everything"
+    }
+  }
    
   var method: HTTPMethod { return .get }
   
@@ -26,7 +33,7 @@ enum NewsTarget: ApiTarget {
       return
         [
         "country": "us",
-          "apiKey": NewsTarget.key,
+        "apiKey": NewsTarget.key,
         "pageSize": pageSize,
         "page": page
         ]

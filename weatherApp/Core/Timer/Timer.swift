@@ -7,18 +7,17 @@ final class Timer {
 
   private var timer: DispatchSourceTimer?
 
-  init(duration: Int,makeRequest: @escaping MakeRequest) {
+  init(duration: Int) {
     self.duration = duration
   }
   
-  func startTimer() {
+  func startTimer(completion: @escaping ()->Void) {
     let queue = DispatchQueue(label: "timer", attributes: .concurrent)
     timer?.cancel()
     timer = DispatchSource.makeTimerSource(queue: queue)
     timer?.schedule(deadline: .now(), repeating: .seconds(duration), leeway: .milliseconds(100))
-    timer?.setEventHandler { [weak self] in
-      self?.makeRequest?()
-      print("timer")
+    timer?.setEventHandler {
+      completion()
     }
     timer?.resume()
   }

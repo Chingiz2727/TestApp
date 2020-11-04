@@ -24,9 +24,7 @@ final class NewsViewModel: NSObject {
     self.tableView = tableView
     self.pageSize = pageSize
     super.init()
-    timer = Timer(duration: 5, makeRequest:  { [unowned self] in
-      self.fetchAll()
-    })
+    timer = Timer(duration: 5)
     tableView.delegate = self
     tableView.dataSource = self
   }
@@ -52,7 +50,9 @@ final class NewsViewModel: NSObject {
       fetchEverything()
       timer?.stopTimer()
     case .top:
-      timer?.startTimer()
+      timer?.startTimer {
+        self.fetchAll()
+      }
     case.favourite:
       if let cacheArticles: [Article] = try? cache.readFromDisk(name: NewsDetailViewController.cacheName) {
         items = cacheArticles
