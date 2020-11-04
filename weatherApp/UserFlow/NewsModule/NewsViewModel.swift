@@ -50,7 +50,7 @@ final class NewsViewModel: NSObject {
       fetchEverything()
       timer?.stopTimer()
     case .top:
-      timer?.startTimer {
+      timer?.startTimer { [unowned self] in
         self.fetchAll()
       }
     case.favourite:
