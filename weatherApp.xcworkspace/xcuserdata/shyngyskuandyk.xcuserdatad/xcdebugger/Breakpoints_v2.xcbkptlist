@@ -14,10 +14,10 @@
             filePath = "weatherApp/UserFlow/MainPageModule/MainPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "fetchData(segment:)"
-            landmarkType = "7">
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "MainPageViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +30,8 @@
             filePath = "weatherApp/UserFlow/MainPageModule/MainPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "fetchData(segment:)"
-            landmarkType = "7">
+            startingLineNumber = "33"
+            endingLineNumber = "33">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

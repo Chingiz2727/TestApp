@@ -14,6 +14,8 @@ struct WebResourceManager {
     let parameter = resource.parameters
     let encoding: ParameterEncoding = resource.method == .get ? URLEncoding.queryString : JSONEncoding.default
     Alamofire.request(url, method: resource.method, parameters: parameter, encoding: encoding, headers: header).responseData { (response) in
+      print(url)
+      print(resource.method)
       logger.response(
         code: response.response?.statusCode,
         path: response.response?.url?.absoluteString,
